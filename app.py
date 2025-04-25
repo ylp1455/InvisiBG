@@ -15,6 +15,24 @@ def get_image_download_link(img, filename, text):
 def main():
     st.set_page_config(page_title="InvisiBG", page_icon="✂️")
 
+    # Custom CSS for footer
+    footer_style = """
+    <style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: transparent;
+        color: #888888;
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+    }
+    </style>
+    """
+    st.markdown(footer_style, unsafe_allow_html=True)
+
     st.title("🔲 InvisiBG")
     st.write("Upload an image to remove the background!")
 
@@ -54,6 +72,14 @@ def main():
                     and remove backgrounds from images. The model is based on U^2-Net architecture trained
                     specifically for salient object detection and segmentation.
                     """)
+
+    # Footer
+    footer_html = """
+    <div class="footer">
+        Created by Azriel Tech Labs
+    </div>
+    """
+    st.markdown(footer_html, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
